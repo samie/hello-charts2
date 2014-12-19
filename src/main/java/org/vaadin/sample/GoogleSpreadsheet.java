@@ -18,18 +18,18 @@ import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class GoogleSpreadSheet extends SpreadsheetService {
+public class GoogleSpreadsheet extends SpreadsheetService {
 
     private static final String MY_APP_ID = "SpreadsheetsDemo";
     private WorksheetFeed feed;
 
-    public GoogleSpreadSheet(String key) {
+    public GoogleSpreadsheet(String key) {
         super(MY_APP_ID);
         try {
             URL url = FeedURLFactory.getDefault().getWorksheetFeedUrl(key, "public", "full");
             this.feed = getFeed(url, WorksheetFeed.class);
         } catch (IOException | ServiceException ex) {
-            Logger.getLogger(GoogleSpreadSheet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GoogleSpreadsheet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -58,7 +58,7 @@ public class GoogleSpreadSheet extends SpreadsheetService {
                 }
             }
         } catch (ServiceException | IOException ex) {
-            Logger.getLogger(GoogleSpreadSheet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GoogleSpreadsheet.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
