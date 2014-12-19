@@ -4,7 +4,6 @@ import com.google.gdata.client.spreadsheet.FeedURLFactory;
 import com.google.gdata.client.spreadsheet.SpreadsheetService;
 import com.google.gdata.data.spreadsheet.CellEntry;
 import com.google.gdata.data.spreadsheet.CellFeed;
-import com.google.gdata.data.spreadsheet.ListEntry;
 import com.google.gdata.data.spreadsheet.WorksheetEntry;
 import com.google.gdata.data.spreadsheet.WorksheetFeed;
 import com.google.gdata.util.ServiceException;
@@ -13,8 +12,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SortedMap;
-import java.util.TreeMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -62,14 +59,4 @@ public class GoogleSpreadsheet extends SpreadsheetService {
         }
         return result;
     }
-
-    private SortedMap<String, String> rowToMap(ListEntry row) {
-        SortedMap<String, String> rowValues = new TreeMap<>();
-        for (String tag : row.getCustomElements().getTags()) {
-            System.out.print("[" + tag + "=" + row.getCustomElements().getValue(tag) + "]");
-            rowValues.put(tag, row.getCustomElements().getValue(tag));
-        }
-        return rowValues;
-    }
-
 }
